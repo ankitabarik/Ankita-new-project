@@ -1,0 +1,53 @@
+def student_name():
+    print("Enter the student's name: ")
+    fname = input("First Name : ")
+    mname = input("Middle Name : ")
+    lname = input("Last Name : ")
+    
+    return lname.capitalize() + ", " + fname.capitalize() + " " +  mname.capitalize()
+    
+def enrollment_number():
+    print("Enter the enrollment number : ")
+    enroll = input("ID  ")
+    flag = 1  #1 is true and 0 is false
+    
+    for i in range(0,4):
+        if(not(enroll[i].isdigit())):
+            flag = 0
+    
+    for i in range(4,6):
+        if(not(enroll[i].isalpha())):
+            flag = 0
+    
+    for i in range(6, 10):
+        if(not(enroll[i].isdigit())):
+            flag = 0
+    
+    return  flag
+
+def grades(m):
+    if(m<40):
+        return 'D(fail)'
+    elif(m>=40 and m<60):
+            return 'C'
+    elif(m>=60 and m<80):
+                return 'B'
+    else:
+                return 'A'
+
+def main():
+    print("The student's name is : ", student_name())
+    
+    if(enrollment_number()):
+        print("Enrollment number is Correct !")
+    else: 
+        print("Re-enter the enrollment number : ")
+        
+        
+    for i in range(0,3):
+        sub = input("Enter the subject : ").capitalize()
+        m = int(input("Enter marks for the particular subject : "))
+        grade = grades(m)
+        print("The subject is "+ sub + " and the grade is "+grade)
+
+main();
